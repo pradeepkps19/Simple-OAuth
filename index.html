@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Zoho OAuth Token</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            .page{
+                margin:5% 5%;
+            }
+            .form-item{
+                margin-bottom : 25px;
+            }
+            .form-label{
+                font-size:25px;
+                color:rgb(0, 110, 236);
+                padding : 20px 0 5px 0;
+            }
+            .form-input input[type ="text"]{
+                padding: 7px 7px;
+                font-size:18px;
+                width:95%;
+                border:1px solid rgb(0, 0, 0);
+                border-width : 1px 1px 1px 1px;
+            }
+            button{
+                padding : 8px 20px;
+                border-radius : 5px;
+                background-color: rgb(0, 0, 0);
+                border-color: rgb(0, 0, 0);
+                color:whitesmoke;
+                font-size : 16px;
+                cursor:pointer;
+            }
+            #oauthtoken{
+                border :  2px dotted rgb(0, 0, 0);
+                padding: 5px 15px;
+                font-size:27px;
+                color:rgb(247, 35, 35);
+                font-weight: bold;
+            }
+            .form-result{
+                font-size:18px;
+                margin-top: 50px;
+                color:rgb(35, 134, 247);
+            }
+            .appserver-btn{
+                margin: 15px;
+                font-family: Arial;
+            }
+            h1{
+                font-weight: normal;
+                font-family: Roboto;
+                font-size: 50px;
+            }
+            button:hover{
+                background-color: rgb(0, 117, 250);
+                border-color: rgb(0, 117, 250);
+            }
+            .appserver-btn:hover, label:hover, input[type="radio"]{
+                cursor: pointer;
+                color: rgb(0, 117, 250);
+            }
+
+        </style>
+        <script type="text/javascript" src="./oauth.js"></script>
+    </head>
+    <body onload="initDefaultValue()">
+        <div class="page">
+            <form>
+                <h1>Zoho OAuth Token</h1>
+                <br><br>
+                <div class="form-item">
+                    <div class="form-label">
+                        Oauth Scopes
+                    </div>
+                    <div class="form-input">
+                        <input required id="scopes" oninput="syncScopesForAutoFill()" type="text"/>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <div class="form-label">
+                        Zoho Environment
+                    </div>
+                    <div class="form-input">
+                        <div class="appserver-btn">
+                            <input type="radio" name="appserver" id="dev" onclick="selectAppServer('dev')"/> <label for="dev"> Development - CSEZ </label>
+                        </div>
+                        <div class="appserver-btn">
+                            <input type="radio" name="appserver" id="local" onclick="selectAppServer('local')"/> <label for="local"> Local Zoho - CT1 </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <div class="form-input">
+                        <button type="submit" onclick="initiateAuthorize(event)">
+                            Generate token
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <div class="form-result">
+                <span>Access Token</span> <br> <br>  <div id="oauthtoken"> </div>
+            </div>
+        </div>
+    </body>
+</html>
