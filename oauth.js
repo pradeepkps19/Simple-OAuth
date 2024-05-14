@@ -1,18 +1,18 @@
-let clientId    = '';
-let scope       = '';
-let redirectUri = '';
-let oauthDomain = '';
+let clientId    = '1000.E3NMADSDLVY134306ZPUZ3P9613C7F';
+let scope       = 'ZohoIM.organizations.ALL,ZohoIM.channels.ALL,ZohoIM.conversations.ALL,ZohoIM.messages.ALL,ZohoSearch.securesearch.READ,ZohoIM.bots.ALL';
+let redirectUri = 'https://pradeepkps19.github.io/Simple-OAuth/redirect.html';
+let oauthDomain = 'https://accounts.localzoho.com';
 
 let scopesHistory = [];
 
 var clientConfig = {
    "local": {
-       "clientId" : '',
-       "domain"   : ''
+       "clientId" : '1000.E3NMADSDLVY134306ZPUZ3P9613C7F',
+       "domain"   : 'https://accounts.localzoho.com'
    },
    "dev": {
-       "clientId" : '',
-       "domain"   : ''
+       "clientId" : '1000.XY7S40QZMUWDTO5ZTD8IWCH8IY82ZR',
+       "domain"   : 'https://accounts.csez.zohocorpin.com'
    }
 };
 
